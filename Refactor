@@ -1,0 +1,21 @@
+package com.exemplo.tdd;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+public class CalculadoraTest {
+    
+    @ParameterizedTest
+    @CsvSource({
+        "2, 3, 5",
+        "-1, 1, 0",
+        "0, 0, 0",
+        "10, -5, 5",
+        "1, 2, 3"
+    })
+    public void testSoma(int a, int b, int esperado) {
+        Calculadora calc = new Calculadora();
+        assertEquals(esperado, calc.soma(a, b));
+    }
+}
